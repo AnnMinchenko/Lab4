@@ -16,4 +16,29 @@ using System.Threading.Tasks;
 namespace Lab4
 {
 
+    public enum ParrotColors { black, green, blue, white, red, yellow };
+
+    public class Parrot
+    {
+        public ParrotColors color = ParrotColors.black;
+        public int wordsCount = 0;
+    }
+
+
+
+    public enum DogBreeds { husky, mops, taksa, corgi, pudel, ovcharka };
+
+    public class Dog
+    {
+        public DogBreeds breed = DogBreeds.husky;
+        public int maxCommandDistance = 0;
+        public int tailLength = 0; 
+    }
+
+    
+    public class Cat
+    {
+        public bool hasWool = false;
+        public int micePerDay = 0; 
+    }
 }
