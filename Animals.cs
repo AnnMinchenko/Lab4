@@ -17,6 +17,13 @@ namespace Lab4
 {
     public class Animal
     {
+        public int Weight = 0;
+
+        public virtual String GetInfo()
+        {
+            var str = String.Format("\nВес: {0}", this.Weight);
+            return str;
+        }
     }
 
     public enum ParrotColors { black, green, blue, white, red, yellow };
@@ -25,6 +32,15 @@ namespace Lab4
     {
         public ParrotColors color = ParrotColors.black;
         public int wordsCount = 0;
+
+        public override String GetInfo()
+        {
+            var str = "Я попугай";
+            str += base.GetInfo();
+            str += String.Format("\nЦвет: {0}", this.color);
+            str += String.Format("\nЗнает слов: {0}", this.wordsCount);
+            return str;
+        }
     }
 
 
@@ -34,13 +50,32 @@ namespace Lab4
     {
         public DogBreeds breed = DogBreeds.husky;
         public int maxCommandDistance = 0;
-        public int tailLength = 0; 
+        public int tailLength = 0;
+
+        public override String GetInfo()
+        {
+            var str = "Я пес";
+            str += base.GetInfo();
+            str += String.Format("\nПорода: {0}", this.breed);
+            str += String.Format("\nМакс. расстояние команд: {0}", this.maxCommandDistance);
+            str += String.Format("\nДлина хвоста: {0}", this.tailLength);
+            return str;
+        }
     }
 
     
     public class Cat : Animal
     {
         public bool hasWool = false;
-        public int micePerDay = 0; 
+        public int micePerDay = 0;
+
+        public override String GetInfo()
+        {
+            var str = "Я кот";
+            str += base.GetInfo();
+            str += String.Format("\nНаличие шерсти: {0}", this.hasWool);
+            str += String.Format("\nМышей в день: {0}", this.micePerDay);
+            return str;
+        }
     }
 }

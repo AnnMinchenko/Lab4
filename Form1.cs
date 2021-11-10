@@ -26,16 +26,22 @@ namespace Lab4
             var rnd = new Random();
             for (var i = 0; i < 10; ++i)
             {
-                switch (rnd.Next() % 3) 
+                switch (rnd.Next() % 3)
                 {
-                    case 0: 
-                        this.animalsList.Add(new Parrot());
+                    case 0:
+                        this.animalsList.Add(new Parrot {
+                            Weight = rnd.Next() % 101
+                        });
                         break;
                     case 1: 
-                        this.animalsList.Add(new Dog());
+                        this.animalsList.Add(new Dog {
+                            Weight = rnd.Next() % 101
+                        });
                         break;
                     case 2: 
-                        this.animalsList.Add(new Cat());
+                        this.animalsList.Add(new Cat {
+                            Weight = rnd.Next() % 101
+                        });
                         break;
                 }
             }
@@ -69,6 +75,23 @@ namespace Lab4
             txtInfo.Text += "\n";
             txtInfo.Text += String.Format("{0}\t{1}\t{2}", parrotCount, dogCount, catCount);
         }
+
+        private void btnGet_Click(object sender, EventArgs e)
+        {
+            if (this.animalsList.Count == 0)
+            {
+                txtOut.Text = "Пусто (ಥ﹏ಥ)";
+                return;
+            }
+
+            var animal = this.animalsList[0];
+            this.animalsList.RemoveAt(0);
+
+            txtOut.Text = animal.GetInfo();
+
+            ShowInfo();
+        }
+
     }
 
     
