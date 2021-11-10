@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab4
@@ -29,19 +23,13 @@ namespace Lab4
                 switch (rnd.Next() % 3)
                 {
                     case 0:
-                        this.animalsList.Add(new Parrot {
-                            Weight = rnd.Next() % 101
-                        });
+                        this.animalsList.Add(Parrot.Generate());
                         break;
                     case 1: 
-                        this.animalsList.Add(new Dog {
-                            Weight = rnd.Next() % 101
-                        });
+                        this.animalsList.Add(Dog.Generate());
                         break;
                     case 2: 
-                        this.animalsList.Add(new Cat {
-                            Weight = rnd.Next() % 101
-                        });
+                        this.animalsList.Add(Cat.Generate());
                         break;
                 }
             }
@@ -70,8 +58,7 @@ namespace Lab4
                 }
             }
 
-            // а ну и вывести все это надо на форму
-            txtInfo.Text = "Попуги\tПесы\tКиты"; // буквы экнмлю, чтобы влезло на форму
+            txtInfo.Text = "Попуги\tПесы\tКиты"; 
             txtInfo.Text += "\n";
             txtInfo.Text += String.Format("{0}\t{1}\t{2}", parrotCount, dogCount, catCount);
         }
