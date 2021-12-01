@@ -40,6 +40,8 @@ namespace Lab4
             return str;
         }
 
+  
+
         public static Parrot Generate()
         {
             return new Parrot
@@ -92,7 +94,7 @@ namespace Lab4
         {
             var str = "Я кот";
             str += base.GetInfo();
-            str += String.Format("\nНаличие шерсти: {0}", this.hasWool);
+            str += String.Format("\nНаличие шерсти: {0}", this.hasWool ? "есть": "нет");
             str += String.Format("\nМышей в день: {0}", this.micePerDay);
             return str;
         }

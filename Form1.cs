@@ -34,6 +34,26 @@ namespace Lab4
                 }
             }
             ShowInfo();
+            ShowQueue();
+        }
+
+        private void ShowQueue()
+        {
+            foreach (var animal in this.animalsList)
+            {
+                if (animal is Parrot)
+                {
+                    txtQueue.Text += "Попугай\n";
+                }
+                else if (animal is Dog)
+                {
+                    txtQueue.Text += "Пес\n";
+                }
+                else if (animal is Cat)
+                {
+                    txtQueue.Text += "Кот\n";
+                }
+            }
         }
 
         private void ShowInfo()
@@ -42,25 +62,25 @@ namespace Lab4
             int dogCount = 0;
             int catCount = 0;
 
-            foreach (var fruit in this.animalsList)
+            foreach (var animal in this.animalsList)
             {
-                if (fruit is Parrot) 
+                if (animal is Parrot) 
                 {
                     parrotCount += 1;
                 }
-                else if (fruit is Dog)
+                else if (animal is Dog)
                 {
                     dogCount += 1;
                 }
-                else if (fruit is Cat)
+                else if (animal is Cat)
                 {
                     catCount += 1;
                 }
             }
 
-            txtInfo.Text = "Попуги\tПесы\tКиты"; 
+            txtInfo.Text = "Попугаи\t Собаки\t Коты"; 
             txtInfo.Text += "\n";
-            txtInfo.Text += String.Format("{0}\t{1}\t{2}", parrotCount, dogCount, catCount);
+            txtInfo.Text += String.Format("   {0}\t    {1}\t    {2}", parrotCount, dogCount, catCount);
         }
 
         private void btnGet_Click(object sender, EventArgs e)
@@ -72,13 +92,19 @@ namespace Lab4
             }
 
             var animal = this.animalsList[0];
+
             this.animalsList.RemoveAt(0);
 
             txtOut.Text = animal.GetInfo();
 
             ShowInfo();
+            txtQueue.Text = "";
+            ShowQueue();
+
+            
         }
 
+        
     }
 
     
